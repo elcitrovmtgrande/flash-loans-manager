@@ -1,0 +1,49 @@
+{
+  "name": "flash-loans-manager",
+  "version": "0.1.0",
+  "description": "",
+  "repository": "https://github.com/eingress/node-es2018-boilerplate.git",
+  "author": "elcitrovmtgrande <victor.mahe.pro@gmail.com>",
+  "license": "ISC",
+  "keywords": [
+    "babel",
+    "eslint",
+    "jest",
+    "node",
+    "prettier"
+  ],
+  "scripts": {
+    "build": "yarn build:clean && babel src -d dist",
+    "build:clean": "rimraf dist/*",
+    "build:watch": "yarn build -w",
+    "coverage": "jest --collectCoverageFrom=src/**/*.js --coverage",
+    "dev": "nodemon src/index.js",
+    "lint": "eslint './{,{__tests__,src}/**/}*.js' --fix --quiet",
+    "prestart": "yarn build",
+    "start": "node dist/index.js",
+    "start:dev": "nodemon src/index.js",
+    "test": "jest --silent",
+    "test:watch": "jest --silent --watchAll"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.13.16",
+    "@babel/core": "7.14.0",
+    "@babel/eslint-parser": "7.13.14",
+    "@babel/node": "7.13.13",
+    "@babel/preset-env": "7.14.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-prettier": "3.4.0",
+    "jest": "26.6.3",
+    "nodemon": "2.0.7",
+    "prettier": "2.2.1",
+    "rimraf": "3.0.2"
+  },
+  "dependencies": {
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "express": "^4.17.1"
+  }
+}

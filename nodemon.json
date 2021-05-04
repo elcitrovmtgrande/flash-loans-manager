@@ -1,0 +1,15 @@
+{
+  "execMap": {
+    "js": "babel-node"
+  },
+  "ext": " js, json, yaml, yml",
+  "ignore": [
+    ".git",
+    "node_modules"
+  ],
+  "signal": "SIGTERM",
+  "watch": [
+    "./__tests__",
+    "./src"
+  ]
+}
