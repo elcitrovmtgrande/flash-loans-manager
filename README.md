@@ -20,10 +20,10 @@ Pour installer avec yarn, faire `yarn add dependency-name`
 yarn dev
 ```
 
-## Lancement en mode développement
+## Lancement des tests
 
 ```bash
-yarn dev
+yarn test
 ```
 
 ## Concept
