@@ -15,5 +15,17 @@ const ALCHEMY_CREDENTIALS = {
   },
 };
 
-export { PORT, INFURA_CREDENTIALS, ALCHEMY_CREDENTIALS };
-export default { PORT, INFURA_CREDENTIALS, ALCHEMY_CREDENTIALS };
+const UNISWAP = {
+  api: {
+    endpoints: {
+      https: 'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2',
+    },
+  },
+};
+
+export {
+  PORT, INFURA_CREDENTIALS, ALCHEMY_CREDENTIALS, UNISWAP,
+};
+export default {
+  PORT, INFURA_CREDENTIALS, ALCHEMY_CREDENTIALS, UNISWAP,
+};
