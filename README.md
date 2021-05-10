@@ -104,3 +104,6 @@ flashLoan.exec();
 
 ## Utils resources
 - [API GraphQL Uniswap](https://thegraph.com/explorer/subgraph/uniswap/uniswap-v2?selected=logs)
+
+## Tutoriels externes
+- [Build a flash loan arbitrage by Infura](https://blog.infura.io/build-a-flash-loan-arbitrage-bot-on-infura-part-i/)

@@ -2,7 +2,7 @@ import express from 'express';
 import socketIO from 'socket.io';
 import { PORT } from './config';
 // import Pair from './Pair';
-import watcher from './watcher';
+import { StrategyManager } from './StrategyManager';
 
 const app = express();
 
@@ -16,5 +16,6 @@ http.listen(3000, '127.0.0.1');
 
 // const io = require('socket.io').listen(server);
 // new Pair(['WETH', 'DAI']).watch();
+const strategy = new StrategyManager(['AAVE', 'WETH'], io);
 
-watcher(['WETH', 'DAI'], io);
+strategy.exec();

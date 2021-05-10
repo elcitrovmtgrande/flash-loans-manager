@@ -23,20 +23,24 @@ const UNISWAP = {
   },
 };
 
-const CRYPTOS = {
-  weth: {
+const CRYPTOS = [
+  {
     symbol: 'WETH',
     contract: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
   },
-  dai: {
+  {
     symbol: 'DAI',
     contract: '0x6b175474e89094c44da98b954eedeac495271d0f',
   },
-  coshi: {
-    symbol: 'COSHI',
-    contract: 'COSHI',
+  // {
+  //   symbol: 'COSHI',
+  //   contract: '0x668C50B1c7f46EFFBE3f242687071d7908AAB00A',
+  // },
+  {
+    symbol: 'AAVE',
+    contract: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9',
   },
-};
+];
 
 export {
   PORT, INFURA_CREDENTIALS, ALCHEMY_CREDENTIALS, UNISWAP, CRYPTOS,
