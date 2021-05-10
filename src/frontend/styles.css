@@ -4,22 +4,48 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 #app {
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  /* height: 500px; */
   border-radius: 20px;
   background: rgb(228, 248, 255);
-  display: flex;
+  padding: 20px;
+  /* display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column; */
+}
+
+.select {
+  margin-bottom: 50px;
+}
+
+.progressContainer {
+  margin-top: 50px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progressContainer > small {
+  display: block;
 }
 
 .progress {
-  width: 90%;
+  margin: auto;
+  width: 80%;
   height: 5px;
   border-radius: 4px;
+  overflow: hidden;
   background: rgb(223, 223, 223);
+}
+.progress--progress {
+  width: 10%;
+  height: 100%;
+  transition: all .33s ease;
 }
