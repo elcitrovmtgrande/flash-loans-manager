@@ -1,3 +1,5 @@
+import UniswapV2FactoryOfficial from '@uniswap/v2-core/build/UniswapV2Factory.json';
+import UniswapV2PairOfficial from '@uniswap/v2-core/build/UniswapV2Pair.json';
 import { CRYPTOS } from './config';
 
 require('dotenv').config();
@@ -7,10 +9,6 @@ const privateKey = process.env.PRIVATE_KEY;
 const flashLoanerAddress = process.env.FLASH_LOANER;
 
 const { ethers } = require('ethers');
-
-// uni/sushiswap ABIs
-const UniswapV2Pair = require('./abis/IUniswapV2Pair.json');
-const UniswapV2Factory = require('./abis/IUniswapV2Factory.json');
 
 // use your own Infura node in production
 // const provider = new ethers.providers.AlchemyProvider('mainnet', process.env.INFURA_KEY);
@@ -29,11 +27,11 @@ class StrategyManager {
     this.io = io;
     this.sushiFactory = new ethers.Contract(
       '0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac',
-      UniswapV2Factory.abi, wallet,
+      UniswapV2FactoryOfficial.abi, wallet,
     );
     this.uniswapFactory = new ethers.Contract(
       '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f',
-      UniswapV2Factory.abi, wallet,
+      UniswapV2FactoryOfficial.abi, wallet,
     );
     this.provider = new ethers.providers.AlchemyWebSocketProvider('mainnet', 'caTQ647EOB-SR1MLFlRpT5cZZ1ixMG45');
   }
@@ -53,11 +51,11 @@ class StrategyManager {
     const token1Address = CRYPTOS.find((c) => c.symbol === token1Symbol).contract;
     this.sushiPair = new ethers.Contract(
       await this.sushiFactory.getPair(token0Address, token1Address),
-      UniswapV2Pair.abi, wallet,
+      UniswapV2PairOfficial.abi, wallet,
     );
     this.uniPair = new ethers.Contract(
       await this.uniswapFactory.getPair(token0Address, token1Address),
-      UniswapV2Pair.abi, wallet,
+      UniswapV2PairOfficial.abi, wallet,
     );
     console.log('loadPairs:token0Address', token0Address);
     console.log('loadPairs:token1Address', token1Address);

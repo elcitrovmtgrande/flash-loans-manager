@@ -32,13 +32,21 @@ const CRYPTOS = [
     symbol: 'DAI',
     contract: '0x6b175474e89094c44da98b954eedeac495271d0f',
   },
-  // {
-  //   symbol: 'COSHI',
-  //   contract: '0x668C50B1c7f46EFFBE3f242687071d7908AAB00A',
-  // },
+  {
+    symbol: 'COSHI',
+    contract: '0x668C50B1c7f46EFFBE3f242687071d7908AAB00A',
+  },
   {
     symbol: 'AAVE',
     contract: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9',
+  },
+  {
+    symbol: 'UNI',
+    contract: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984',
+  },
+  {
+    symbol: 'USDT',
+    contract: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
   },
 ];
 

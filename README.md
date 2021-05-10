@@ -107,3 +107,13 @@ flashLoan.exec();
 
 ## Tutoriels externes
 - [Build a flash loan arbitrage by Infura](https://blog.infura.io/build-a-flash-loan-arbitrage-bot-on-infura-part-i/)
+
+## Notes
+D'apres UniSwap, si les deux currency sont differentes de WETH. Alors pour swaper, on est obligé de passer par du WETH.
+
+Ainsi la route sera la suivante pour echanger du DAI vs du AAVE : DAI > WETH > AAVE
+
+Il faudra donc prendre en compte ce critère afin de permettre de trader des devises entre elles directement avec le robot.
+
+Dans un premier temps, on se limitera donc au trade WETH / ANY.
+

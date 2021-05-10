@@ -16,6 +16,6 @@ http.listen(3000, '127.0.0.1');
 
 // const io = require('socket.io').listen(server);
 // new Pair(['WETH', 'DAI']).watch();
-const strategy = new StrategyManager(['AAVE', 'WETH'], io);
+const strategy = new StrategyManager(['WETH', 'USDT'], io);
 
 strategy.exec();
