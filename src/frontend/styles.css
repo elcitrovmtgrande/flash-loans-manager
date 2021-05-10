@@ -1,0 +1,25 @@
+html, body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#app {
+  width: 500px;
+  height: 500px;
+  border-radius: 20px;
+  background: rgb(228, 248, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.progress {
+  width: 90%;
+  height: 5px;
+  border-radius: 4px;
+  background: rgb(223, 223, 223);
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flash Loans Monitor</title>
+  <link rel="stylesheet" href="/app/styles.css">
+</head>
+<body>
+  <div id="app">
+    <h1>Monitor</h1>
+    <p>
+      UNISWAP PRICE 3910.9088458857104<br>
+      SUSHISWAP PRICE 3910.8880931468657<br>
+      PROFITABLE? false<br>
+      CURRENT SPREAD: -0.0005306372422020367 %<br>
+      ABSLUTE SPREAD: -0.5994693627577979<br>
+      <div class="progress">
+        <div class="progress--progress"></div>
+      </div>
+    </p>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js" integrity="sha512-eVL5Lb9al9FzgR63gDs1MxcDS2wFu3loYAgjIH0+Hg38tCS8Ag62dwKyH+wzDb+QauDpEZjXbMn11blw8cbTJQ==" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      },
+      mounted() {
+        this.socket = io();
+        this.socket.on('block', function(data){
+          console.log(data);
+       });
+      }
+    })
+  </script>
+</body>
+</html>

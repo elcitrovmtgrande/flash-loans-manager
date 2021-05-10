@@ -1,4 +1,7 @@
 // make sure to test your own strategies, do not use this version in production
+
+import { CRYPTOS } from './config';
+
 require('dotenv').config();
 
 const privateKey = process.env.PRIVATE_KEY;
@@ -17,10 +20,10 @@ const provider = new ethers.providers.AlchemyWebSocketProvider('mainnet', 'caTQ6
 
 const wallet = new ethers.Wallet(privateKey, provider);
 
-const ETH_TRADE = 10;
+const ETH_TRADE = 1000;
 const DAI_TRADE = 3500;
 
-const runBot = async () => {
+const runBot = async (pair, io) => {
   const sushiFactory = new ethers.Contract(
     '0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac',
     UniswapV2Factory.abi, wallet,
@@ -31,9 +34,13 @@ const runBot = async () => {
   );
   const daiAddress = '0x6b175474e89094c44da98b954eedeac495271d0f';
   const wethAddress = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2';
+  const coshiAddress = '0x668C50B1c7f46EFFBE3f242687071d7908AAB00A';
 
   let sushiEthDai;
   let uniswapEthDai;
+
+  let uniswapEthCoshi;
+  let sushiswapEthCoshi;
 
   const loadPairs = async () => {
     sushiEthDai = new ethers.Contract(
@@ -73,6 +80,17 @@ const runBot = async () => {
          / Number(
            ethers.utils.formatEther(uniswapReserves[shouldStartEth ? 1 : 0]),
          ));
+
+      if (io) {
+        io.emit('block', JSON.stringify({
+          timestamp: Date.now(),
+          priceUniswap,
+          priceSushiswap,
+          shouldTrade,
+          currentSpread: (priceSushiswap / priceUniswap - 1) * 100,
+          absoluteSpread: spread,
+        }));
+      }
 
       console.log(`UNISWAP PRICE ${priceUniswap}`);
       console.log(`SUSHISWAP PRICE ${priceSushiswap}`);
