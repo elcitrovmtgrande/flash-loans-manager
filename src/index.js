@@ -1,7 +1,4 @@
 import express from 'express';
-import socketIO from 'socket.io';
-import { PORT } from './config';
-// import Pair from './Pair';
 import { StrategyManager } from './StrategyManager';
 
 const app = express();
@@ -12,10 +9,6 @@ const io = require('socket.io')(http);
 
 http.listen(3000, '127.0.0.1');
 
-// app.listen(PORT, () => console.log(`Server listning to http://localhost:${PORT}`));
-
-// const io = require('socket.io').listen(server);
-// new Pair(['WETH', 'DAI']).watch();
 const strategy = new StrategyManager(['WETH', 'USDT'], io);
 
 strategy.exec();
