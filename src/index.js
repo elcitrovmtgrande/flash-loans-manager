@@ -1,8 +1,11 @@
 import express from 'express';
+import cors from 'cors';
 import { CRYPTOS } from './config';
 import { StrategyManager } from './StrategyManager';
 
 const app = express();
+
+app.use(cors());
 
 app.get('/api/cryptos', (req, res) => {
   res.json(CRYPTOS);

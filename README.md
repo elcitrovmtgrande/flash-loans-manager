@@ -85,6 +85,7 @@ flashLoan.exec();
 ## Tutoriels externes
 - [Build a flash loan arbitrage by Infura](https://blog.infura.io/build-a-flash-loan-arbitrage-bot-on-infura-part-i/)
 - [Mix React and Express](https://www.freecodecamp.org/news/how-to-make-create-react-app-work-with-a-node-backend-api-7c5c48acb1b0/)
+- [React router](https://reactrouter.com/web/guides/quick-start)
 
 ## Notes
 D'apres UniSwap, si les deux currency sont differentes de WETH. Alors pour swaper, on est obligé de passer par du WETH.
