@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from '../Button/Button';
+import TouchableStrategy from '../TouchableStrategy/TouchableStrategy';
 import {connect} from 'react-redux';
 import './Master.css';
 
@@ -27,6 +28,8 @@ const Master = ({ app }) => {
             over the ETH ecosystem.
         </h3>
         <Button label="Create pair" onClick={onNew} />
+
+        <TouchableStrategy propriete={300} />
       </div>
     </div>
   </div>

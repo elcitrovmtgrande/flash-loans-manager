@@ -1,4 +1,4 @@
-const PORT = 5000;
+const PORT = 3000;
 const INFURA_CREDENTIALS = {
   projectName: 'flash-loans-manager',
   projectId: '1s4WhA9I1fDPz5qPebhcQUUyMAR',
