@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { Master } from './components';
+import NoDataSvg from './undraw_crypto_portfolio_2jy5.svg'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Master />
+     <div className="route">
+        <div className="page flex-col">
+          <h1>You ain't got <span class="emphasized-text">no pair</span></h1>
+          <h3>Add a pair to watch or tell your bitch to do it for you tho.</h3>
+          <img className="noDataSvg" src={NoDataSvg} alt="You have no pair watching. Create a pair to start." width="500"/>
+        </div>
+     </div>
     </div>
   );
 }
