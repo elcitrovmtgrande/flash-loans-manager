@@ -54,6 +54,27 @@ const Strategy = ({ app }) => {
             pointHitRadius: 10,
             data: eventsForStrategy.map(e => e.absoluteSpread),
           },
+          {
+            label: "Threshold",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "red",
+            borderColor: "red",
+            borderCapStyle: "butt",
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: "miter",
+            pointBorderColor: "red",
+            pointBackgroundColor: "red",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: eventsForStrategy.map(e => 0),
+          },
         ]
       };
       setGraphData(data);
