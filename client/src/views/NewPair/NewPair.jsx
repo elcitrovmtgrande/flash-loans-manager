@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './NewPair.css';
 import { Button, Select } from '../../components';
+import { connect } from 'react-redux';
 
-const NewPairPage = () => {
+const NewPairPage = ({ app, dispatch }) => {
   const [options, setOptions] = useState([]);
   const [tokenA, setTokenA] = useState(null);
   const [tokenB, setTokenB] = useState(null);
@@ -39,7 +40,20 @@ const NewPairPage = () => {
 
     console.log(response);
 
-    
+    const strategyObject = {
+      strategyId: response.strategyId,
+      pair: {
+        tokenA,
+        tokenB,
+      },
+    };
+
+    const action = {
+      type: 'UPDATE_STRATEGIES',
+      value: strategyObject,
+    };
+    console.log(dispatch)
+    dispatch(action);
   }
 
   return (
@@ -62,4 +76,4 @@ const NewPairPage = () => {
   );
 };
 
-export default NewPairPage;
+export default connect(state => state)(NewPairPage);

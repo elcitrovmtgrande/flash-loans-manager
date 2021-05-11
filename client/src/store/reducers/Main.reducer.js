@@ -1,20 +1,27 @@
 const INITIAL_STATE = {
-  pairs: [],
+  strategies: [],
+  events: [],
 };
 
 const mainReducer = (state = INITIAL_STATE, action = null) => {
   let nextState = {};
   switch (action.type) {
-    case 'UPDATE_CONNECTION':
+    case 'UPDATE_STRATEGIES':
+      const { strategies: initialStrategies } = state;
+      const strategies = JSON.parse(JSON.stringify(initialStrategies));
+      strategies.push(action.value);
       nextState = {
         ...state,
-        isConnected: action.value,
+        strategies,
       };
       return nextState;
-    case 'MOVE_CARD':
+    case 'UPDATE_EVENTS':
+      const { events: initialEvents } = state;
+      const events = JSON.parse(JSON.stringify(initialEvents));
+      events.push(action.value);
       nextState = {
         ...state,
-        moveCard: action.value ? action.value : state.moveCard,
+        events,
       };
       return nextState;
     default:
