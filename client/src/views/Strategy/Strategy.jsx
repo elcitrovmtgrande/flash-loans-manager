@@ -17,14 +17,15 @@ const Strategy = ({ app }) => {
     ? eventsForStrategy[eventsForStrategy.length - 1] : null;
   
   const [graphData, setGraphData] = useState([]);
-
   useEffect(() => {
+    
     updateGraph();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     updateGraph();
-    
+    // eslint-disable-next-line
   }, [events, strategyId]);
 
   function updateGraph() {

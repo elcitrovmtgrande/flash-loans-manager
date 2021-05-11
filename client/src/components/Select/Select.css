@@ -2,6 +2,14 @@
   width: 100%;
   position: relative;
 }
+.sel.disabled {
+  opacity: .4;
+  cursor: unset !important;
+}
+.sel.disabled .select:hover {
+  opacity: unset !important;
+  cursor: auto !important;
+}
 .select {
   display: flex;
   align-items: center;
