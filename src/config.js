@@ -1,4 +1,4 @@
-const PORT = 3000;
+const PORT = 5000;
 const INFURA_CREDENTIALS = {
   projectName: 'flash-loans-manager',
   projectId: '1s4WhA9I1fDPz5qPebhcQUUyMAR',
@@ -34,11 +34,11 @@ const CRYPTOS = [
     contract: '0x6b175474e89094c44da98b954eedeac495271d0f',
     icon: 'https://etherscan.io/token/images/MCDDai_32.png',
   },
-  {
-    symbol: 'COSHI',
-    contract: '0x668C50B1c7f46EFFBE3f242687071d7908AAB00A',
-    icon: 'https://etherscan.io/token/images/corgishiba_32.png',
-  },
+  // {
+  //   symbol: 'COSHI',
+  //   contract: '0x668C50B1c7f46EFFBE3f242687071d7908AAB00A',
+  //   icon: 'https://etherscan.io/token/images/corgishiba_32.png',
+  // },
   {
     symbol: 'AAVE',
     contract: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9',

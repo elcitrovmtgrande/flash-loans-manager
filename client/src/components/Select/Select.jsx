@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Select.css';
 
-const Select = ({ placeholder, options }) => {
+const Select = ({ placeholder, options, onChange }) => {
   const [selected, setSelected] = useState(null);
   const [open, setOpen] = useState(false);
 
@@ -12,6 +12,7 @@ const Select = ({ placeholder, options }) => {
   function onOptionPress(option) {
     setSelected(option);
     openToggle();
+    if(onChange) onChange(option);
   }
 
   return (
@@ -32,7 +33,7 @@ const Select = ({ placeholder, options }) => {
           {options.map(option => {
             const { symbol, contract, icon } = option;
             return (
-              <div className="sel__options--option" onClick={() => onOptionPress(option)}>
+              <div key={option.contract} className="sel__options--option" onClick={() => onOptionPress(option)}>
                 <img className="sel__options--option--img" src={icon} alt={symbol} />
                 <p className="sel__options--option--symbol">{symbol}</p>
                 <p className="sel__options--option--contract">[{contract}]</p>

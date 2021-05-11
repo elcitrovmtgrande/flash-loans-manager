@@ -1,5 +1,6 @@
 import UniswapV2FactoryOfficial from '@uniswap/v2-core/build/UniswapV2Factory.json';
 import UniswapV2PairOfficial from '@uniswap/v2-core/build/UniswapV2Pair.json';
+import { v1 } from 'uuid';
 import { CRYPTOS } from './config';
 
 require('dotenv').config();
@@ -21,6 +22,7 @@ const DAI_TRADE = 3500;
 
 class StrategyManager {
   constructor(pair, io) {
+    this.id = v1();
     this.pair = pair;
     this.sushiPair = null;
     this.uniPair = null;
@@ -90,6 +92,7 @@ class StrategyManager {
 
       if (this.io) {
         this.io.emit('block', JSON.stringify({
+          strategyId: this.id,
           timestamp: Date.now(),
           priceUniswap,
           priceSushiswap,
