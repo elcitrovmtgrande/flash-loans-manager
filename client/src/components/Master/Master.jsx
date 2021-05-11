@@ -1,9 +1,12 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from '../Button/Button';
+import {connect} from 'react-redux';
 import './Master.css';
 
-const Master = () => {
+const Master = ({ app }) => {
+
+  console.log(app.pairs)
 
   const history = useHistory();
 
@@ -29,4 +32,4 @@ const Master = () => {
   </div>
 };
 
-export default Master;
+export default connect(state => state)(Master);
