@@ -32,7 +32,7 @@ const Master = ({ app }) => {
           <div className="strategies">
             {strategies.map(strategy => {
               return (
-                <TouchableStrategy strategy={strategy} />
+                <TouchableStrategy key={strategy.strategyId} strategy={strategy} />
               )
             })}
           </div>
