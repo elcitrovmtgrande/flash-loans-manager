@@ -4,11 +4,9 @@ import { StrategyManager } from './StrategyManager';
 
 const app = express();
 
-app.get('/cryptos', (req, res) => {
+app.get('/api/cryptos', (req, res) => {
   res.json(CRYPTOS);
 });
-
-app.use('/app', express.static('./src/frontend'));
 
 const http = require('http').createServer(app);
 
