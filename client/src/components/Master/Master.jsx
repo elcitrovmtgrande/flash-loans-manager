@@ -5,7 +5,7 @@ import TouchableStrategy from '../TouchableStrategy/TouchableStrategy';
 import { connect } from 'react-redux';
 import './Master.css';
 
-const Master = ({ app }) => {
+const Master = ({ app, dispatch }) => {
   const { strategies } = app;
 
   const history = useHistory();
@@ -18,6 +18,80 @@ const Master = ({ app }) => {
     history.push('/');
   }
 
+  async function startAll() {
+    const optionsReq = await fetch('http://localhost:5000/api/cryptos');
+    const cryptos = await optionsReq.json();
+
+    for (let i = 0; i < cryptos.length; i++) {
+      console.log(cryptos)
+      const crypto = cryptos[i];
+      console.log('crypto', crypto);
+      const { symbol } = crypto;
+      if (symbol !== 'WETH') {
+        const pair = ['WETH', symbol];
+        const postRequest = await fetch('http://localhost:5000/api/strategy', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ pair }),
+        });
+        const response = await postRequest.json();
+        const strategyObject = {
+          strategyId: response.strategyId,
+          pair: {
+            tokenA: cryptos.find(c => c.symbol === 'WETH'),
+            tokenB: crypto,
+          },
+        };
+    
+        const action = {
+          type: 'UPDATE_STRATEGIES',
+          value: strategyObject,
+        };
+        dispatch(action);
+      }
+    }
+    // if (!tokenA || !tokenB) {
+    //   alert('Please fill the form correctly, mofo.');
+    //   return;
+    // }
+    // pair[0] = tokenA.symbol;
+    // pair[1] = tokenB.symbol;
+
+    // const postRequest = await fetch('http://localhost:5000/api/strategy', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({ pair }),
+    // });
+
+    // const response = await postRequest.json();
+
+    // console.log(response);
+
+    // const strategyObject = {
+    //   strategyId: response.strategyId,
+    //   pair: {
+    //     // tokenA,
+    //     // tokenB,
+    //   },
+    // };
+
+    // const action = {
+    //   type: 'UPDATE_STRATEGIES',
+    //   value: strategyObject,
+    // };
+    // // console.log(dispatch)
+    // // dispatch(action);
+
+    // history.push(`/strategy/${response.strategyId}`);
+
+  }
+
   return <div className="master">
     <div className="master__header">
       <div className="page">
@@ -27,6 +101,10 @@ const Master = ({ app }) => {
           over the ETH ecosystem.
         </h3>
         <Button label="Create pair" onClick={onNew} />
+        <div style={{ marginTop: 20 }}>
+          <Button label="Launch all" bgColor="black" onClick={startAll} />
+        </div>
+
 
         {strategies && strategies.length > 0 && (
           <div className="strategies">
