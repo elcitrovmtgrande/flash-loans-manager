@@ -18,7 +18,7 @@ function App() {
     socket.on('block', (data) => {
       const action = {
         type: 'UPDATE_EVENTS',
-        value: data,
+        value: JSON.parse(data),
       };
       Store.dispatch(action);
     });

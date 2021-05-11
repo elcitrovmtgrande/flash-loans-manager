@@ -54,6 +54,14 @@ html, body {
   flex-direction: column;
 }
 
+.flex-col-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+
 .noDataSvg {
   margin-top: 50px;
 }
