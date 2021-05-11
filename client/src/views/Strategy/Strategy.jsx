@@ -19,6 +19,15 @@ const Strategy = ({ app }) => {
   const [graphData, setGraphData] = useState([]);
 
   useEffect(() => {
+    updateGraph();
+  }, []);
+
+  useEffect(() => {
+    updateGraph();
+    
+  }, [events, strategyId]);
+
+  function updateGraph() {
     if(eventsForStrategy && eventsForStrategy.length > 0) {
       const data = {
         labels: eventsForStrategy.map(e => e.timestamp),
@@ -50,8 +59,7 @@ const Strategy = ({ app }) => {
     } else {
       setGraphData([]);
     }
-    
-  }, [events]);
+  }
 
   
 
