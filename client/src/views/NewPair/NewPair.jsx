@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './NewPair.css';
 import { Button, Select } from '../../components';
 import { connect } from 'react-redux';
@@ -7,6 +8,8 @@ const NewPairPage = ({ app, dispatch }) => {
   const [options, setOptions] = useState([]);
   const [tokenA, setTokenA] = useState(null);
   const [tokenB, setTokenB] = useState(null);
+
+  const history = useHistory();
 
   useEffect(() => {
     fetchPairs();
@@ -54,6 +57,9 @@ const NewPairPage = ({ app, dispatch }) => {
     };
     console.log(dispatch)
     dispatch(action);
+
+    history.push(`/strategy/${response.strategyId}`);
+    
   }
 
   return (
