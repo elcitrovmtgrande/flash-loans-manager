@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import './NewPair.css';
 import { Button, Select } from '../../components';
@@ -11,6 +11,8 @@ const NewPairPage = ({ app, dispatch }) => {
 
   const history = useHistory();
 
+  const tokenASelect = useRef(null);
+
   useEffect(() => {
     fetchPairs();
   }, []);
@@ -18,7 +20,10 @@ const NewPairPage = ({ app, dispatch }) => {
   async function fetchPairs() {
     const optionsReq = await fetch('http://localhost:5000/api/cryptos');
     const cryptos = await optionsReq.json();
+    // Pour le moment seules les paires avec du WETH sont prises en charge
+    const WETH = cryptos.find(c => c.symbol === 'WETH');
     setOptions(cryptos);
+    setTokenA(WETH);
   }
 
   async function postStrategy() {
@@ -69,6 +74,8 @@ const NewPairPage = ({ app, dispatch }) => {
         <h3>Please fill this short form to watch a new pair</h3>
         <Select
           options={options}
+          defaultOption={tokenA}
+          disabled
           placeholder="Please select Token A"
           onChange={(option) => setTokenA(option)} />
         <Select

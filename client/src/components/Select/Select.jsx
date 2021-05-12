@@ -1,9 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Select.css';
 
-const Select = ({ placeholder, options, onChange }) => {
+const Select = ({ placeholder, options, onChange, disabled, defaultOption }) => {
   const [selected, setSelected] = useState(null);
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if(defaultOption) {
+      setSelected(defaultOption);
+    }
+    // eslint-disable-next-line
+  }, [])
+
+  useEffect(() => {
+    if(defaultOption) {
+      setSelected(defaultOption);
+    }
+    // eslint-disable-next-line
+  }, [defaultOption])
 
   function openToggle() {
     setOpen(!open);
@@ -16,10 +30,11 @@ const Select = ({ placeholder, options, onChange }) => {
   }
 
   return (
-    <div className="sel">
+    <div className={ disabled ? "sel disabled" : "sel"}>
       <div
+        
         className={selected ? 'select selected' : 'select empty'}
-        onClick={openToggle}>
+        onClick={!disabled ? openToggle : () => {}}>
         {selected ? (
           <div className="selected" >
             <img className="selected--img" src={selected.icon} alt={selected.symbol} />
