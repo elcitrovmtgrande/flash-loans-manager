@@ -1,4 +1,30 @@
 .touchableStrategy {
   width: 100%;
   background: #FFB1B1;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cryptos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cryptos__symbol {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border: 4px solid #FFB1B1;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cryptos__symbol.tokenB {
+  margin-left: -10px;
+}
+.token__symbol {
+  text-transform: uppercase;
+  font-weight: bold;
 }
