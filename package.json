@@ -48,6 +48,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@truffle/hdwallet-provider": "^1.4.0",
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "*",
     "chart.js": "^3.2.1",
@@ -69,6 +70,7 @@
     "react-vis": "^1.11.7",
     "socket.io": "^4.0.2",
     "socket.io-client": "^4.1.0",
+    "truffle": "^5.3.6",
     "uuid": "^8.3.2",
     "web-vitals": "^1.0.1"
   }

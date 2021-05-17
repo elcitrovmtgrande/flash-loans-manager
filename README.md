@@ -79,6 +79,15 @@ const flashLoan = new FlashLoan({
 });
 flashLoan.exec();
 ```
+
+## Partie Flashloan
+Voici la liste des tâches les plus importantes à developper.
+| Tâche  	| Statut  	|
+|---	    |---	      |
+| Publier un SmartContract sur la Blockchain Ethereum permettant de faire un flashloan	    |   ❌	    |
+| Le tester en test 	    |   ❌	    |
+| Le tester sur mainnet	    |   ❌	    |
+
 ## Utils resources
 - [API GraphQL Uniswap](https://thegraph.com/explorer/subgraph/uniswap/uniswap-v2?selected=logs)
 
